@@ -12,7 +12,7 @@ Simple internal 2D tile map editor for building coordinate-grid map layers for a
 - `src/map_builder/map_grid.py`: map grid editing model.
 - `src/map_builder/blocking_grid.py`: per-cell blocking flags for each layer.
 - `src/map_builder/brush.py` + `src/map_builder/tools.py`: brush and tool definitions.
-- `tilesets/`: tileset image files.
+- `tilesets/`: tileset image files (subfolders supported, discovered recursively).
 - `layers/`: saved layer files (one file per layer).
 
 ## Layer Model
@@ -27,7 +27,7 @@ Simple internal 2D tile map editor for building coordinate-grid map layers for a
 
 - Full-display, resizable editor window (starts at current display size).
 - Sharper, less cramped layout for controls, palette, and map canvas.
-- Tileset dropdown selector auto-populated from `tilesets/` (+ `Refresh`).
+- Tileset dropdown selector auto-populated from `tilesets/` recursively (+ `Refresh`).
 - Load existing layer files directly into the active editable layer (`Load Active`).
 - Save active layer and immediately reuse it as default source for `Load BG`.
 - Clear active layer content quickly (`Clear Canvas` clears tiles + blocking).
@@ -76,7 +76,7 @@ uv run ruff format --check .
 ```python
 LAYER_NAME = "base_a5_layer"
 LAYER_ORDER = 0
-TILESET_PATH = "tilesets/tf_A5_ashlands_2.png"
+TILESET_PATH = "tilesets/<group>/<tileset_file>.png"
 TILE_SIZE = 16
 MAP_WIDTH = 50
 MAP_HEIGHT = 38

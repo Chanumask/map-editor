@@ -1652,7 +1652,6 @@ class MapBuilderApp:
             preferred_paths.append(previous_path.resolve())
         if self.active_layer.tileset_path:
             preferred_paths.append(self._resolve_path_for_read(self.active_layer.tileset_path))
-        preferred_paths.append((self.tileset_root / "tf_A5_ashlands_2.png").resolve())
 
         for path in preferred_paths:
             if self._select_tileset_path(path, add_if_missing=False):
